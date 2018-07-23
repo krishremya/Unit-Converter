@@ -37,28 +37,33 @@ Window {
         width: 400
         x: 750
         y: 600
-        text: print(value.convert(textInput.value))
+        text: value.convert(textInput.value)
     }
+
     Button {
         text: "Convert"
+        width: 400
+        x: 750
+        y: 200
         anchors {
             top: dispbox.bottom
+            topMargin: 10
             horizontalCenter: parent.horizontalCentre
         }
         onClicked: {
-            value.getValue(textInput.value)
             value.convert(textInput.value)
         }
     }
 
    ListModel {
        id: value
-       function getValue(input) {
-         input = textInput.value
-       }
        function convert(n) {
-         n = getValue(x)
-         console.log(n*1000)
+            n = textInput.value
+            var s = n*1000
+            return out(s)
+       }
+       function out(s) {
+            return (console.log(s))
        }
    }
 }
