@@ -61,9 +61,11 @@ Window {
             n = textInput.value
             var s = n*1000
             return out(s)
-       }
+        }
        function out(s) {
-            return (console.log(s))
+           var msg = "The converted value is %1"
+           console.log(msg.arg(s))
+           return msg
        }
    }
 }
