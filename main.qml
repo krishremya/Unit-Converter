@@ -36,8 +36,9 @@ Window {
         id:button
         text: "Convert"
         width: 400
+        height: 40
         anchors {
-            top: dispbox.bottom
+            top: textOutput.bottom
             topMargin: 10
             horizontalCenter: parent.horizontalCenter
         }
@@ -55,6 +56,7 @@ Window {
         id: textOutput
         color: "Grey"
         width: 400
+        height: 40
         anchors {
             top: textInput.bottom
             topMargin: 10
