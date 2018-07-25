@@ -55,10 +55,12 @@ Window {
         id: textOutput
         color: "Grey"
         width: 400
-        anchors.top: textInput.bottom
-        anchors.topMargin: 10
-        anchors.horizontalCenter: parent.horizontalCenter
-        text:" Converted to:"+button.convert(textInput.value)
+        anchors{
+            top: textInput.bottom
+            topMargin: 10
+            horizontalCenter: parent.horizontalCenter
+        }
+        text:button.convert(textInput.value)
 
     }
 }
