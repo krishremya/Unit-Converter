@@ -18,7 +18,7 @@ Window {
         id: dispbox
         width: 900
         height: 750
-        color: "Green"
+        color: "Orange"
         anchors.centerIn: parent
         }
 
@@ -47,8 +47,8 @@ Window {
         function convert(n) {
              n = textInput.value
              var s = n*1000
-             var msg  = "The converted kilometers to meters is %1"
-             return msg.arg(s)
+             var msg  = "%1 kilometers is %2 meters"
+             return msg.arg(n).arg(s)
         }
     }
     TextField {
@@ -60,7 +60,7 @@ Window {
             topMargin: 10
             horizontalCenter: parent.horizontalCenter
         }
-        text:button.convert(textInput.value)
+        text: button.convert(textInput.value)
 
     }
 }
