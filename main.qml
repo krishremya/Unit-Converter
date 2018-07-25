@@ -29,7 +29,11 @@ Window {
         to: 100*100
         width: 400
         height: 40
-        anchors.centerIn: dispbox
+        anchors {
+            bottom: textOutput.top
+            bottomMargin: 10
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     Button {
@@ -37,11 +41,9 @@ Window {
         text: "Convert"
         width: 400
         height: 40
-        anchors {
-            top: textOutput.bottom
-            topMargin: 10
-            horizontalCenter: parent.horizontalCenter
-        }
+        anchors.centerIn: dispbox
+
+
         onClicked: {
             textOutput.text = button.convert(textInput.value)
         }
@@ -58,8 +60,8 @@ Window {
         width: 400
         height: 40
         anchors {
-            top: textInput.bottom
-            topMargin: 10
+            bottom: button.bottom
+            bottomMargin: 80
             horizontalCenter: parent.horizontalCenter
         }
         text: button.convert(textInput.value)
