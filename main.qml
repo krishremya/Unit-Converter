@@ -13,14 +13,6 @@ Window {
     width: 640
     height: 480
     title: qsTr("Unit_Convertor")
-    function convert(n) {
-         n = textInput.value
-         var s = n*1000
-         var msg = "The converted value is %1"
-         console.log(msg.arg(s))
-         return msg.arg(s)
-   }
-
 
     Rectangle {
         id: dispbox
@@ -32,21 +24,16 @@ Window {
 
     SpinBox {
         id: textInput
-        value: 50
+        from: 0
+        value: 0
+        to: 100*100
         width: 400
         height: 40
-        anchors.centerIn: dispbox;
-    }
-
-    TextField {
-        id: textOutput
-        color: "Grey"
-        width: 400
-        verticalAlignment: Text.AlignVCenter
-        text: appWindow.convert(textInput.value)
+        anchors.centerIn: dispbox
     }
 
     Button {
+        id:button
         text: "Convert"
         width: 400
         anchors {
@@ -55,7 +42,23 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
         onClicked: {
-            appWindow.convert(textInput.value)
+            textOutput.text = button.convert(textInput.value)
         }
+        function convert(n) {
+             n = textInput.value
+             var s = n*1000
+             var msg  = "The converted kilometers to meters is %1"
+             return msg.arg(s)
+        }
+    }
+    TextField {
+        id: textOutput
+        color: "Grey"
+        width: 400
+        anchors.top: textInput.bottom
+        anchors.topMargin: 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        text:" Converted to:"+button.convert(textInput.value)
+
     }
 }
