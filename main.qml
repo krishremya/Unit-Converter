@@ -55,7 +55,7 @@ Window {
         id: textOutput
         color: "Grey"
         width: 400
-        anchors{
+        anchors {
             top: textInput.bottom
             topMargin: 10
             horizontalCenter: parent.horizontalCenter
