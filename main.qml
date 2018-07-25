@@ -13,12 +13,19 @@ Window {
     width: 640
     height: 480
     title: qsTr("Unit_Convertor")
+    function convert(n) {
+         n = textInput.value
+         var s = n*1000
+         var msg = "The converted value is %1"
+         console.log(msg.arg(s))
+         return msg.arg(s)
+   }
 
 
     Rectangle {
         id: dispbox
-        width: 1024
-        height: 900
+        width: 900
+        height: 750
         color: "Green"
         anchors.centerIn: parent
         }
@@ -27,45 +34,28 @@ Window {
         id: textInput
         value: 50
         width: 400
-        x: 750
-        y: 400
+        height: 40
+        anchors.centerIn: dispbox;
     }
 
     TextField {
         id: textOutput
         color: "Grey"
         width: 400
-        x: 750
-        y: 600
-        text: value.convert(textInput.value)
+        verticalAlignment: Text.AlignVCenter
+        text: appWindow.convert(textInput.value)
     }
 
     Button {
         text: "Convert"
         width: 400
-        x: 750
-        y: 200
         anchors {
             top: dispbox.bottom
             topMargin: 10
-            horizontalCenter: parent.horizontalCentre
+            horizontalCenter: parent.horizontalCenter
         }
         onClicked: {
-            value.convert(textInput.value)
+            appWindow.convert(textInput.value)
         }
     }
-
-   ListModel {
-       id: value
-       function convert(n) {
-            n = textInput.value
-            var s = n*1000
-            return out(s)
-        }
-       function out(s) {
-           var msg = "The converted value is %1"
-           console.log(msg.arg(s))
-           return msg
-       }
-   }
 }
