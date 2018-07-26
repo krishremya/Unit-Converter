@@ -30,8 +30,8 @@ Window {
         width: 400
         height: 40
         anchors {
-            bottom: textOutput.top
-            bottomMargin: 10
+            bottom: button.top
+            bottomMargin: 40
             horizontalCenter: parent.horizontalCenter
         }
     }
@@ -54,17 +54,17 @@ Window {
              return msg.arg(n).arg(s)
         }
     }
+
     TextField {
         id: textOutput
         color: "Grey"
         width: 400
         height: 40
         anchors {
-            bottom: button.bottom
-            bottomMargin: 80
+            top: button.bottom
+            topMargin: 40
             horizontalCenter: parent.horizontalCenter
         }
         text: button.convert(textInput.value)
-
     }
 }
