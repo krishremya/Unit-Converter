@@ -31,7 +31,7 @@ Window {
         height: 40
         anchors {
             bottom: button.top
-            bottomMargin: 40
+            bottomMargin: 60
             horizontalCenter: parent.horizontalCenter
         }
     }
@@ -39,9 +39,13 @@ Window {
     Button {
         id:button
         text: "Convert"
-        width: 400
+        width: 200
         height: 40
-        anchors.centerIn: dispbox
+        anchors {
+            top: combo.bottom
+            topMargin:10
+            horizontalCenter: parent.horizontalCenter
+        }
 
 
         onClicked: {
@@ -66,5 +70,14 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
         text: button.convert(textInput.value)
+    }
+
+    ComboBox {
+        id: combo
+        width: 200
+        model: ["Decimetre","Millimetre","Metre","Centimeter"]
+        anchors {
+            centerIn: dispbox
+        }
     }
 }
