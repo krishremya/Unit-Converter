@@ -46,16 +46,48 @@ Window {
             topMargin:10
             horizontalCenter: parent.horizontalCenter
         }
-
-
         onClicked: {
-            textOutput.text = button.convert(textInput.value)
+            if(combo.model === "Meter") {
+            textOutput.text = button.convertM(textInput.value)
+            } else if(combo.model === "Nautical Miles") {
+                textOutput.text = button.convertN(textInput.value)
+                } else if(combo.model === "Feet") {
+                    textOutput.text = button.convertF(textInput.value)
+                    } else if(combo.model === "Yard") {
+                        textOutput.text = button.convertY(textInput.value)
+                        } else if(combo.model === "Centimetre"){
+                            textOutput.text = button.convertC(textInput.value)
+                            }
         }
-        function convert(n) {
+        function convertM(n) {
              n = textInput.value
              var s = n*1000
              var msg  = "%1 kilometers is %2 meters"
              return msg.arg(n).arg(s)
+        }
+        function convertN(n) {
+            n = textInput.value
+            var s = n*0.54
+            var msg = "%1 kilometers is %2 Nautical Miles "
+            return msg.arg(n).arg(s)
+        }
+        function convertF(n) {
+            n = textInput.value
+            var s = n * 3280.8
+            var msg = "%1 kilometers is %2 feets "
+            return msg.arg(n).arg(s)
+        }
+        function convertC(n) {
+            n = textInput.value
+            var s = n * 100000
+            var msg = "%1 kilometers is %2 centimeters "
+            return msg.arg(n).arg(s)
+        }
+        function convertY(n) {
+            n = textInput.value
+            var s = n * 1093.6
+            var msg = "%1 kilometers is %2 centimeters "
+            return msg.arg(n).arg(s)
         }
     }
 
@@ -69,13 +101,13 @@ Window {
             topMargin: 40
             horizontalCenter: parent.horizontalCenter
         }
-        text: button.convert(textInput.value)
+        text: button.convertM(textInput.value)
     }
 
     ComboBox {
         id: combo
         width: 200
-        model: ["Decimetre","Millimetre","Metre","Centimeter"]
+        model: ["Nautical Miles","Feet","Metre","Centimetre","Yard"]
         anchors {
             centerIn: dispbox
         }
