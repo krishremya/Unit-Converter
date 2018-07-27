@@ -64,6 +64,7 @@ Window {
              var s = n*1000
              var msg  = "%1 kilometers is %2 meters"
              return msg.arg(n).arg(s)
+
         }
         function convertN(n) {
             n = textInput.value
@@ -101,7 +102,7 @@ Window {
             topMargin: 40
             horizontalCenter: parent.horizontalCenter
         }
-        text: button.convertM(textInput.value)
+        text: button.convertF(textInput.value)
     }
 
     ComboBox {
