@@ -102,7 +102,18 @@ Window {
             topMargin: 40
             horizontalCenter: parent.horizontalCenter
         }
-        text: button.convertF(textInput.value)
+        text: {
+                if(combo.model === "Feet")
+                return button.convertF(textInput.value)
+                else if(combo.model === "Metre")
+                return buttonc.convertM(textInput.value)
+                else if(combo.model === "Nautical Miles")
+                return button.convertN(textInput.value)
+                else if(combo.model === "Yard")
+                return button.convertY(textInput.value)
+                else if(combo.model === "Centimetre")
+                return button.convertC(textInput.value)
+              }
     }
 
     ComboBox {
