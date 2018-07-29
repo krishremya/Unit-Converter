@@ -113,7 +113,8 @@ Window {
                 return button.convertY(textInput.value)
                 else if(combo.model === "Centimetre")
                 return button.convertC(textInput.value)
-              }
+            }
+
     }
 
     ComboBox {
