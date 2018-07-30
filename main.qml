@@ -48,15 +48,15 @@ Window {
         }
         onClicked: {
             if(combo.model === "Meter") {
-            textOutput.text = console.log(button.convertM(textInput.value))
+            textOutput.text = button.convertM(textInput.value)
             } else if(combo.model === "Nautical Miles") {
-                textOutput.text = console.log(button.convertN(textInput.value))
+                textOutput.text = button.convertN(textInput.value)
                 } else if(combo.model === "Feet") {
-                    textOutput.text = console.log(button.convertF(textInput.value))
+                    textOutput.text = button.convertF(textInput.value)
                     } else if(combo.model === "Yard") {
-                        textOutput.text = console.log(button.convertY(textInput.value))
+                        textOutput.text = button.convertY(textInput.value)
                         } else if(combo.model === "Centimetre"){
-                            textOutput.text = console.log(button.convertC(textInput.value))
+                            textOutput.text = button.convertC(textInput.value)
                             }
         }
         function convertM(n) {
@@ -105,22 +105,21 @@ Window {
         text: {
                 if(combo.model === "Feet") {
                    var msg = button.convertF(textInput.value)
-                   print(msg)
+                   console.log(msg);
                 }else if(combo.model === "Metre") {
                    var msge = buttonc.convertM(textInput.value)
-                    print(msge)
+                    console.log(msge)
                 } else if(combo.model === "Nautical Miles") {
                     var msges = button.convertN(textInput.value)
-                    print(msges)
+                    console.log(msges)
                 } else if(combo.model === "Yard") {
                     var mesges = button.convertY(textInput.value)
-                    print(mesges)
+                    console.log(mesges)
                 } else if(combo.model === "Centimetre") {
                     var message =  button.convertC(textInput.value)
-                    print(message)
+                    console.log(message)
                 }
         }
-
     }
 
     ComboBox {
@@ -130,6 +129,5 @@ Window {
         anchors {
             centerIn: dispbox
         }
-
     }
 }
