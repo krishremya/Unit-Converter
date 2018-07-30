@@ -103,17 +103,23 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
         text: {
-                if(combo.model === "Feet")
-                return button.convertF(textInput.value)
-                else if(combo.model === "Metre")
-                return buttonc.convertM(textInput.value)
-                else if(combo.model === "Nautical Miles")
-                return button.convertN(textInput.value)
-                else if(combo.model === "Yard")
-                return button.convertY(textInput.value)
-                else if(combo.model === "Centimetre")
-                return button.convertC(textInput.value)
-            }
+                if(combo.model === "Feet") {
+                   var msg = button.convertF(textInput.value)
+                   return msg
+                }else if(combo.model === "Metre") {
+                   var msge = buttonc.convertM(textInput.value)
+                    return msge
+                } else if(combo.model === "Nautical Miles") {
+                    var msges = button.convertN(textInput.value)
+                    return msges
+                } else if(combo.model === "Yard") {
+                    var mesges = button.convertY(textInput.value)
+                    return mesges
+                } else if(combo.model === "Centimetre") {
+                    var message =  button.convertC(textInput.value)
+                    return message
+                }
+        }
 
     }
 
