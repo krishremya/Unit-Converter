@@ -129,5 +129,6 @@ Window {
         anchors {
             centerIn: dispbox
         }
+        onAcceptableInputChanged: console.log(combo.model)
     }
 }
