@@ -104,20 +104,15 @@ Window {
         }
         text: {
                 if(combo.model === "Feet") {
-                   var msg = button.convertF(textInput.value)
-                   console.log(msg);
+                  return button.convertF(textInput.value)
                 }else if(combo.model === "Metre") {
-                   var msge = buttonc.convertM(textInput.value)
-                    console.log(msge)
+                     return buttonc.convertM(textInput.value)
                 } else if(combo.model === "Nautical Miles") {
-                    var msges = button.convertN(textInput.value)
-                    console.log(msges)
+                    return  button.convertN(textInput.value)
                 } else if(combo.model === "Yard") {
-                    var mesges = button.convertY(textInput.value)
-                    console.log(mesges)
+                    return button.convertY(textInput.value)
                 } else if(combo.model === "Centimetre") {
-                    var message =  button.convertC(textInput.value)
-                    console.log(message)
+                     return button.convertC(textInput.value)
                 }
         }
     }
@@ -129,6 +124,8 @@ Window {
         anchors {
             centerIn: dispbox
         }
-        onAcceptableInputChanged: console.log(combo.model)
+        onCurrentTextChanged: console.log(textInput.text)
+
+
     }
 }
