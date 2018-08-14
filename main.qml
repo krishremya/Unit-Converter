@@ -103,18 +103,19 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
         text: {
-                if(combo.model === "Feet") {
-                  return button.convertF(textInput.value)
-                }else if(combo.model === "Metre") {
-                     return buttonc.convertM(textInput.value)
-                } else if(combo.model === "Nautical Miles") {
-                    return  button.convertN(textInput.value)
-                } else if(combo.model === "Yard") {
-                    return button.convertY(textInput.value)
-                } else if(combo.model === "Centimetre") {
-                     return button.convertC(textInput.value)
-                }
+               if(combo.model === "Feet") {
+                 button.convertF(textInput.value)
+               } else if(combo.model === "Metre") {
+                  button.convertM(textInput.value)
+               } else if(combo.model === "Nautical Miles") {
+                   button.convertN(textInput.value)
+               } else if(combo.model === "Yard") {
+                   button.convertY(textInput.value)
+               } else if(combo.model === "Centimetre") {
+                   button.convertC(textInput.value)
+               }
         }
+
     }
 
     ComboBox {
