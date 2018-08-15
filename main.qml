@@ -49,7 +49,7 @@ Window {
         onClicked: {
             if(combo.model === "Meter") {
             textOutput.text = button.convertM(textInput.value)
-            } else if(combo.model === "Nautical Miles") {
+            } else if(combo.model === "NauticalMiles") {
                 textOutput.text = button.convertN(textInput.value)
                 } else if(combo.model === "Feet") {
                     textOutput.text = button.convertF(textInput.value)
@@ -107,21 +107,21 @@ Window {
                  button.convertF(textInput.value)
                } else if(combo.model === "Metre") {
                   button.convertM(textInput.value)
-               } else if(combo.model === "Nautical Miles") {
+               } else if(combo.model === "NauticalMiles") {
                    button.convertN(textInput.value)
                } else if(combo.model === "Yard") {
                    button.convertY(textInput.value)
                } else if(combo.model === "Centimetre") {
                    button.convertC(textInput.value)
                }
-        }
+         }
 
     }
 
     ComboBox {
         id: combo
         width: 200
-        model: ["Nautical Miles","Feet","Metre","Centimetre","Yard"]
+        model: ["NauticalMiles","Feet","Metre","Centimetre","Yard"]
         anchors {
             centerIn: dispbox
         }
