@@ -57,7 +57,7 @@ Window {
                         textOutput.text = button.convertY(textInput.value)
                         } else if(combo.model === "Centimetre"){
                             textOutput.text = button.convertC(textInput.value)
-                            }
+                              }
         }
         function convertM(n) {
              n = textInput.value
