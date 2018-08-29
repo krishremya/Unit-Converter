@@ -75,16 +75,18 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
         onClicked: {
-            if(combo.currentText == "Metre") {
-                textOutput.text = convertM(textInput.value)
-            } else if(combo.currentText == "NauticalMiles") {
-                textOutput.text = convertN(textInput.value)
-            } else if(combo.currentText == "Feet") {
-                textOutput.text = convertF(textInput.value)
-            } else if(combo.currentText == "Yard") {
-                textOutput.text = convertY(textInput.value)
-            } else if(combo.currentText == "Centimetre"){
-                textOutput.text = convertC(textInput.value)
+            if(combo1.currentText == "Distances") {
+                if(combo.currentText == "Metre") {
+                    textOutput.text = convertM(textInput.value)
+                } else if(combo.currentText == "NauticalMiles") {
+                    textOutput.text = convertN(textInput.value)
+                } else if(combo.currentText == "Feet") {
+                    textOutput.text = convertF(textInput.value)
+                } else if(combo.currentText == "Yard") {
+                    textOutput.text = convertY(textInput.value)
+                } else if(combo.currentText == "Centimetre"){
+                    textOutput.text = convertC(textInput.value)
+                }
             }
         }
     }
@@ -97,6 +99,17 @@ Window {
         anchors {
             top: button.bottom
             topMargin: 40
+            horizontalCenter: parent.horizontalCenter
+        }
+    }
+    ComboBox{
+        id: combo1
+        width: 400
+        height: 50
+        model: ["Currencies","Distances"]
+        anchors {
+            bottom: textInput.top
+            bottomMargin: 10
             horizontalCenter: parent.horizontalCenter
         }
     }
