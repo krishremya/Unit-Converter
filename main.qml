@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
+import QtQuick.XmlListModel 2.0
 
 Window {
     id: appWindow
@@ -113,5 +114,9 @@ Window {
         model: ["NauticalMiles","Feet","Metre","Centimetre","Yard"]
         anchors.centerIn: dispbox
         onCurrentTextChanged: console.log(textInput.value)
+    }
+    XmlListModel {
+        id: xmllist
+        source: "https://www.boi.org.il/currency.xml"
     }
 }
