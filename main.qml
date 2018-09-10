@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.XmlListModel 2.0
+import QtQml 2.2
 
 Window {
     id: appWindow
@@ -9,6 +10,7 @@ Window {
     width: 640
     height: 480
     title: qsTr("Unit_Convertor")
+
     function convertM(n) {
          n = textInput.value
          var s = n*1000
@@ -40,6 +42,21 @@ Window {
         var msg = "%1 kilometers is %2 yards "
         return msg.arg(n).arg(s)
     }
+    function getCurr(curr) {
+        return (curr >= 0)?get(curr).currency: ""
+    }
+
+    function getRate(curr) {
+        return (curr >= 0)? get(curr).rate: 0.0
+    }
+
+    function convertCurrency(from, fromRate, toRate) {
+        var rate = getRate(fromRate);
+        if(from.length <=0 || rate <= 0.0)
+            return " " ;
+        return currency.getRate(toRate) * (parseFloat(from)/rate);
+    }
+
     Rectangle {
         id: dispbox
         width: 900
@@ -47,6 +64,7 @@ Window {
         color: "Orange"
         anchors.centerIn: parent
         }
+
     SpinBox {
         id: textInput
         from: 0
@@ -60,6 +78,7 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
     }
+
     Button {
         id:button
         text: "Convert"
@@ -83,9 +102,12 @@ Window {
                 } else if(combo.currentText == "Centimetre"){
                     textOutput.text = convertC(textInput.value)
                 }
+            } else {
+                textOutput.text = ""
             }
         }
     }
+
     TextField {
         id: textOutput
         color: "Grey"
@@ -97,6 +119,7 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
     }
+
     ComboBox{
         id: combo1
         width: 400
@@ -108,6 +131,7 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
     }
+
     ComboBox {
         id: combo
         width: 200
@@ -115,8 +139,20 @@ Window {
         anchors.centerIn: dispbox
         onCurrentTextChanged: console.log(textInput.value)
     }
+
     XmlListModel {
         id: xmllist
         source: "https://www.boi.org.il/currency.xml"
+        namespaceDeclarations: "declare namespace CURRENCIES='http://www.boi.org/currency.xml/NAME/UNIT/RATE/CHANGE';"
+        query: "/CURRENCIES/CURRENCY/CURRENCY/CURRENCY"
+
+        XmlRole {
+            name: "CURRENCY";
+            query: "@CURRENCY/string()"
+        }
+        XmlRole {
+            name: "RATE";
+            query: "@RATE/string()"
+        }
     }
 }
