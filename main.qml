@@ -146,6 +146,13 @@ Window {
         namespaceDeclarations: "declare namespace CURRENCIES='http://www.boi.org/currency.xml/NAME/UNIT/RATE/CHANGE';"
         query: "/CURRENCIES/CURRENCY/CURRENCY/CURRENCY"
 
+        onStatusChanged: {
+            if(status === XmlListModel.ready) {
+                for(var i =0 ;i < count; i++) {
+                                   }
+            }
+        }
+
         XmlRole {
             name: "CURRENCY";
             query: "@CURRENCY/string()"
