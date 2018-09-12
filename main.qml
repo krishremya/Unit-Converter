@@ -42,13 +42,7 @@ Window {
         var msg = "%1 kilometers is %2 yards "
         return msg.arg(n).arg(s)
     }
-    function getCurr(curr) {
-        return (curr >= 0)?get(curr).currency: ""
-    }
 
-    function getRate(curr) {
-        return (curr >= 0)? get(curr).rate: 0.0
-    }
 
     function convertCurrency(from, fromRate, toRate) {
         var rate = getRate(fromRate);
@@ -149,7 +143,8 @@ Window {
         onStatusChanged: {
             if(status === XmlListModel.ready) {
                 for(var i =0 ;i < count; i++) {
-                                   }
+                    currencies.append({"currency": get(i).currency, "rate": parseFloat(get(i).rate)})
+                }
             }
         }
 
@@ -160,6 +155,24 @@ Window {
         XmlRole {
             name: "RATE";
             query: "@RATE/string()"
+        }
+    }
+
+    Page {
+        title: qsTr("Currency Converter")
+        ListModel {
+            id: currencies
+            ListElement {
+                currency: "EUR"
+                rete: 1.0
+            }
+            function getCurr(curr) {
+                return (curr >= 0)?get(curr).currency: ""
+            }
+
+            function getRate(curr) {
+                return (curr >= 0)? get(curr).rate: 0.0
+            }
         }
     }
 }
