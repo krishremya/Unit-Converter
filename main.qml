@@ -97,7 +97,7 @@ Window {
                     textOutput.text = convertC(textInput.value)
                 }
             } else {
-                textOutput.text = ""
+                textOutput.text = convertCurrency()
             }
         }
     }
@@ -185,16 +185,6 @@ Window {
             top: textOutput.bottom
             topMargin: 10
             horizontalCenter: parent.horizontalCenter
-        }
-
-        onTextChanged: {
-            if(activeFocus) {
-                inputFrom.text = convert(inputFrom.text, selectFrom.currencyIndex,selectorTo.currencyIndex)
-            }
-        }
-
-        function update() {
-           text = convert(nputFrom.text, selectorFrom.currencyIndex, selectorTo.currencyIndex)
         }
     }
 }
