@@ -175,4 +175,26 @@ Window {
             }
         }
     }
+
+    TextField {
+        id: inputTo
+        width: 400
+        height: 40
+        text: '0.0'
+        anchors {
+            top: textOutput.bottom
+            topMargin: 10
+            horizontalCenter: parent.horizontalCenter
+        }
+
+        onTextChanged: {
+            if(activeFocus) {
+                inputFrom.text = convert(inputFrom.text, selectFrom.currencyIndex,selectorTo.currencyIndex)
+            }
+        }
+
+        function update() {
+           text = convert(nputFrom.text, selectorFrom.currencyIndex, selectorTo.currencyIndex)
+        }
+    }
 }
