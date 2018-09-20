@@ -48,7 +48,7 @@ Window {
         var rate = getRate(fromRate);
         if(from.length <=0 || rate <= 0.0)
             return " " ;
-        return currency.getRate(toRate) * (parseFloat(from)/rate);
+        return currencies.getRate(toRate) * (parseFloat(from)/rate);
     }
 
     Rectangle {
@@ -75,7 +75,7 @@ Window {
 
     Button {
         id:button
-        text: "Convert"
+        text: "Convert Distance"
         width: 200
         height: 40
         anchors {
@@ -102,14 +102,28 @@ Window {
         }
     }
 
-    TextField {
+    Button {
+        id:button2
+        text: "Convert Currency"
+        width: 200
+        height: 10
+        anchors {
+            top: button.bottom
+            topMargin:10
+            bottom: textOutput.top
+            bottomMargin: 10
+            horizontalCenter: parent.horizontalCenter
+        }
+    }
+
+      TextField {
         id: textOutput
         color: "Grey"
         width: 400
         height: 40
         anchors {
             top: button.bottom
-            topMargin: 40
+            topMargin: 60
             horizontalCenter: parent.horizontalCenter
         }
     }
@@ -147,7 +161,6 @@ Window {
                 }
             }
         }
-
         XmlRole {
             name: "CURRENCY";
             query: "@CURRENCY/string()"
@@ -156,6 +169,7 @@ Window {
             name: "RATE";
             query: "@RATE/string()"
         }
+
     }
 
     Page {
@@ -186,5 +200,6 @@ Window {
             topMargin: 10
             horizontalCenter: parent.horizontalCenter
         }
+
     }
 }
