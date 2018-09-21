@@ -53,8 +53,8 @@ Window {
 
     Rectangle {
         id: dispbox
-        width: 900
-        height: 750
+        width: 1000
+        height: 800
         color: "Orange"
         anchors.centerIn: parent
         }
@@ -77,12 +77,8 @@ Window {
         id:button
         text: "Convert Distance"
         width: 200
-        height: 40
-        anchors {
-            top: combo.bottom
-            topMargin:10
-            horizontalCenter: parent.horizontalCenter
-        }
+        height: 30
+        anchors.centerIn: dispbox
         onClicked: {
             if(combo1.currentText == "Distances") {
                 if(combo.currentText == "Metre") {
@@ -116,7 +112,7 @@ Window {
         }
     }
 
-      TextField {
+    TextField {
         id: textOutput
         color: "Grey"
         width: 400
@@ -135,6 +131,7 @@ Window {
         model: ["Currencies","Distances"]
         anchors {
             bottom: textInput.top
+            topMargin: 100
             bottomMargin: 10
             horizontalCenter: parent.horizontalCenter
         }
@@ -143,9 +140,28 @@ Window {
     ComboBox {
         id: combo
         width: 200
+        height: 40
         model: ["NauticalMiles","Feet","Metre","Centimetre","Yard"]
-        anchors.centerIn: dispbox
+        anchors {
+            bottom: button.top
+            bottomMargin: 10
+            top: textInput.bottom
+            topMargin: 10
+            horizontalCenter: parent.horizontalCenter
+        }
+
         onCurrentTextChanged: console.log(textInput.value)
+    }
+
+    ComboBox {
+        id: combo2
+        width: 200
+        height:50
+        model: ["USA","GBP","JPY","EUR","AUD","CAD","DKK","NOK","ZAR","SEK","CHF","JOD","LBP","EGP"]
+        anchors {
+
+
+        }
     }
 
     XmlListModel {
