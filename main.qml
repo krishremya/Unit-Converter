@@ -77,7 +77,7 @@ Window {
         id:button
         text: "Convert Distance"
         width: 200
-        height: 30
+        height: 40
         anchors.centerIn: dispbox
         onClicked: {
             if(combo1.currentText == "Distances") {
@@ -156,10 +156,14 @@ Window {
     ComboBox {
         id: combo2
         width: 200
-        height:50
+        height:40
         model: ["USA","GBP","JPY","EUR","AUD","CAD","DKK","NOK","ZAR","SEK","CHF","JOD","LBP","EGP"]
         anchors {
-
+             top: textInput.bottom
+             topMargin: 10
+             right: combo.left
+             leftMargin: 10
+             rightMargin: 10
 
         }
     }
@@ -188,9 +192,8 @@ Window {
 
     }
 
-    Page {
-        title: qsTr("Currency Converter")
-        ListModel {
+
+    ListModel {
             id: currencies
             ListElement {
                 currency: "EUR"
@@ -204,7 +207,6 @@ Window {
                 return (curr >= 0)? get(curr).rate: 0.0
             }
         }
-    }
 
     TextField {
         id: inputTo
