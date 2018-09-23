@@ -44,11 +44,13 @@ Window {
     }
 
 
-    function convertCurrency(from, fromRate, toRate) {
-        var rate = getRate(fromRate);
-        if(from.length <=0 || rate <= 0.0)
-            return " " ;
-        return currencies.getRate(toRate) * (parseFloat(from)/rate);
+    function convertCurrency(n) {
+        n = textInput.value
+        var ans = 0
+        if(xmllist.xml0.name === combo2.currentText) {
+            ans = n* xmllist.xml0.rate
+        }
+        return ans
     }
 
     Rectangle {
@@ -109,6 +111,11 @@ Window {
             bottom: textOutput.top
             bottomMargin: 10
             horizontalCenter: parent.horizontalCenter
+        }
+
+        onClicked: {
+            if(combo2.currentIndex === xmllist.xml0.name)
+                textOutput.text = convert(textInput.value)
         }
     }
 
@@ -171,7 +178,7 @@ Window {
     XmlListModel {
         id: xmllist
         source: "https://www.boi.org.il/currency.xml"
-        namespaceDeclarations: "declare namespace CURRENCIES='http://www.boi.org/currency.xml/NAME/UNIT/RATE/CHANGE';"
+        namespaceDeclarations: "declare namespace CURRENCIES='http://www.boi.org/currency.xml/CURRENCYCODE/UNIT/RATE/CHANGE';"
         query: "/CURRENCIES/CURRENCY/CURRENCY/CURRENCY"
 
         onStatusChanged: {
@@ -182,10 +189,12 @@ Window {
             }
         }
         XmlRole {
-            name: "CURRENCY";
-            query: "@CURRENCY/string()"
+            id:xml0
+            name: "CURRENCYCODE";
+            query: "@CURRENCYCODE/string()"
         }
         XmlRole {
+            id: xml1
             name: "RATE";
             query: "@RATE/string()"
         }
