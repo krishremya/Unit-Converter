@@ -115,7 +115,7 @@ Window {
 
         onClicked: {
             if(combo2.currentIndex === xmllist.xml0.name)
-                textOutput.text = convert(textInput.value)
+                textOutput.text = convertCurrency(textInput.value)
         }
     }
 
@@ -181,13 +181,7 @@ Window {
         namespaceDeclarations: "declare namespace CURRENCIES='http://www.boi.org/currency.xml/CURRENCYCODE/UNIT/RATE/CHANGE';"
         query: "/CURRENCIES/CURRENCY/CURRENCY/CURRENCY"
 
-        onStatusChanged: {
-            if(status === XmlListModel.ready) {
-                for(var i =0 ;i < count; i++) {
-                    currencies.append({"currency": get(i).currency, "rate": parseFloat(get(i).rate)})
-                }
-            }
-        }
+
         XmlRole {
             id:xml0
             name: "CURRENCYCODE";
