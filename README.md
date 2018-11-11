@@ -54,5 +54,5 @@ qmlscene main.qml
 - OS: Kubuntu 18.O4 (KDE version: 5.47.0)
  
 ## License
-This project is licensed under the MIT License, see the [LICENSE.md](https://github.com/krishremya/Unit-Converter/blob/master/LICENSE) for more details.
+This project is licensed under the MIT License, see the [LICENSE.md](https://github.com/krishremya/Unit-Converter/blob/master/LICENSE.md) for more details.
     
