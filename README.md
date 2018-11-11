@@ -15,7 +15,7 @@ sudo apt-get install build-essential libgl1-mesa-dev
 ```
 
 Download the executable file from http://download.qt.io/official_releases/online_installers/ according to your system requirements. 
-*(Mine is Linux 64 bit)*
+*(I use Linux 64 bit)*
 
 - Installing the QtCreator
 ```bash
@@ -54,5 +54,5 @@ qmlscene main.qml
 - OS: Kubuntu 18.O4 (KDE version: 5.47.0)
  
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License, see the [LICENSE.md](https://github.com/krishremya/Unit-Converter/blob/master/LICENSE) for more details.
     
