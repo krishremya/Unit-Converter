@@ -1,5 +1,8 @@
 # Unit-Converter
 
+
+[![Gitter](https://badges.gitter.im/Unit-Converter/Lobby.svg)](https://gitter.im/Unit-Converter/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Unit Converter is a KDE application using Qt/QML that provide functionality to convert user entered values into various distance units and currency values.The conversion on currency values happens in real-time based on the inputs received from the market. 
 
 ## Getting Started
